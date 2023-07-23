@@ -1,0 +1,117 @@
+<html>
+
+<head>
+    <title>To Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+
+</head>
+
+<body>
+    <div style="display: flex;flex-direction: column;">
+        <div>
+            <h1 id="todo">To Do List</h1>
+        </div>
+        <div style="display: flex;flex-direction: row;align-items: center;justify-content: space-around;flex-flow: wrap;">
+            <div class="input_bar">
+                <input type="text" id="inputtext" placeholder="Enter your new task">
+                <div class="new_input">
+                <label for="start" >Due date:</label>
+                <input type="date" id="duedate" value="">
+               </div>
+                <div class="new_input">
+                    <label>Priority:</label>
+                    <select id="priority" name="Priority">
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+                <div class="new_input">
+                    <label >Category:</label>
+                    <select id="category" name="category" >
+                        <option value="Office">Office</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Family">Family</option>
+                        <option value="Friends">Friends</option>
+                    </select>
+                </div>
+                <button onclick="addtask()" id="btn">Add</button>
+            </div>
+
+        </div>
+        <div style="margin: 20px 0 20px 0;">
+            <span style="font-weight: bold;margin-left: 10px;" class="reminder">Reminder: </span><span id="reminder" class="reminder"></span>
+        </div>
+
+        <div class="second" >
+            <div style="display: flex;flex-flow: wrap;">
+                <button onclick="show_all()" class="small_btn">Show All</button>
+                <button onclick="show_completed()"  class="small_btn">Completed Task</button>
+                <button onclick="show_pending()" class="small_btn">Pending Task</button>
+            </div>
+            <div style="display: flex;align-items: center;flex-flow: wrap;justify-content: center;">
+              <div class="second_div" >
+                <label for="start">Due date:</label>
+                <input type="date" id="filter_due" onchange="filter_()">
+               </div>
+                <div class="second_div" >
+                    <label style="background-color: aquamarine;">Priority:</label>
+                    <select id="filter_priority" name="Priority" onchange="filter_()">
+                        <option value="None">None</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+                <div class="second_div">
+                    <label>Category:</label>
+                    <select id="filter_category" name="category" onchange="filter_()">
+                        <option value="None">None</option>
+                        <option value="Office">Office</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Family">Family</option>
+                        <option value="Friends">Friends</option>
+                    </select>
+                </div>
+                <div class="second_div">
+                    <label>Sort by:</label>
+                    <select id="sorting" name="category" onchange="filter_()">
+                        <option value="None">None</option>
+                        <option value="Task">Task</option>
+                        <option value="Duedate">Due Date</option>
+                        <option value="Category">Category</option>
+                        <option value="Priority">Priority</option>
+                    </select>
+                </div>
+            <div >
+                <input type="text" id="searchtext" placeholder="Search...">
+                <button onclick="search()"  class="small_btn">Search</button>
+            </div>
+        </div>
+        </div>
+
+        <table id="table">
+        </table>
+
+
+    </div>
+
+    <!-- <ol id="myList">
+
+    </ol> -->
+
+    <script>
+        showtask(tasks);
+        const list = document.getElementById("inputtext");
+        list.addEventListener("keypress", (e) => e.key == "Enter" && addtask());
+
+        const srch = document.getElementById("searchtext");
+        srch.addEventListener("keypress", (e) => e.key == "Enter" && search());
+    </script>
+</body>
+
+</html>
