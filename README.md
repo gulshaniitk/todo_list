@@ -1,6 +1,7 @@
 # todo_list
 Javascript Assignment
 
+The project is Deployed at: https://gulshaniitk.github.io/todo_list/
 
 The todo-list application have the following features:
 1. Add Todo: Users can add new tasks to the todo list.
